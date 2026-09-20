@@ -54,6 +54,7 @@ Elige perfil (lo acuerda `intake`) y ajusta con motivo escrito. Los valores vien
 | Duplicación | — | ≤ 3% | ≤ 3% |
 | Ciclos de dependencias | evitar | **0** | **0** |
 | Dependencias nuevas | libre | justificadas + auditadas | justificadas + auditadas + fijadas por versión |
+| Paquetes: existencia + integridad | — | lockfile presente | lockfile + hash pinning; existencia verificada (anti-slopsquatting) |
 | Secretos en el repo | 0 | 0 | 0 + escaneo en CI |
 | Vulnerabilidades altas/críticas conocidas | declaradas | 0 | 0 + SBOM |
 | Errores de tipado / lint | — | 0 | 0 |
@@ -65,7 +66,9 @@ Elige perfil (lo acuerda `intake`) y ajusta con motivo escrito. Los valores vien
 
 ## Las dos capas
 
-**Capa 1 — máquina (siempre, sin excepción):** formato, lint, tipos, tests, cobertura de código nuevo, mutación del núcleo, complejidad, tamaño, duplicación, ciclos de dependencias, auditoría de dependencias, escaneo de secretos, build reproducible.
+**Capa 1 — máquina (siempre, sin excepción):** formato, lint, tipos, tests, cobertura de código nuevo, mutación del núcleo, complejidad, tamaño, duplicación, ciclos de dependencias, auditoría de dependencias, **verificación de existencia de cada paquete nuevo (anti-slopsquatting) + lockfile íntegro con versiones fijadas**, escaneo de secretos, build reproducible.
+
+> **Slopsquatting** (CSA 2026): los modelos alucinan nombres de paquetes inexistentes (~5% comercial, ~20% open source) y hay atacantes que registran esos nombres. Todo paquete que proponga un agente se **verifica que exista y sea el correcto** antes de instalarlo; nunca instalar sin allowlist o revisión. Para apps agénticas/con IA, añadir a la constitución los límites de **agencia** (OWASP LLM 2025 "Excessive Agency"): mínimo de herramientas, mínimo de permisos, y aprobación humana para acciones de alto impacto. Ver la skill `ai-security`.
 
 **Capa 2 — humano obligatorio (aunque la capa 1 esté verde):** un diff que toque cualquiera de esto se lee línea por línea, y lo lee alguien que no lo escribió:
 

@@ -52,6 +52,8 @@ PEDIDO
 | "Va lento" | `performance` | Medir antes de optimizar. |
 | Datos, migraciones, backups | `data-layer` | Los datos son lo único irrecuperable. |
 | Seguridad de lo que se construye | `app-security` | Baseline OWASP por tipo de app. |
+| Seguridad de IA / agentes / código generado por IA | `ai-security` | OWASP LLM+Agentic, prompt injection, slopsquatting. |
+| "Trabaja como programador senior / hazlo bien de verdad" | `agentic-coding` | El método: verificar-primero, contexto limpio, revisión adversarial. |
 | Dominio específico | `web-app`, `api-backend`, `bot-dev`, `automation`, `desktop-app`, `mobile-app` | Trampas propias de cada plataforma. |
 | Cierre de sesión con avance real | `project-memory` | Lo que no se documenta se vuelve a pagar. |
 

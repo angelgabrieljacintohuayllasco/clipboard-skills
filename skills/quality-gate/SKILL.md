@@ -49,7 +49,7 @@ Busca en este orden: `docs/project/constitution.md` → `AGENTS.md` → scripts 
 | 2 | Tests unitarios + cobertura de código nuevo | Minutos. El corazón del gate. |
 | 3 | Complejidad, tamaño, parámetros, duplicación | Rápido. Es lo que evita el monolito dentro de 6 meses. |
 | 4 | Ciclos de dependencias + dependencias sin usar | Rápido. Estructura sana = cambios baratos. |
-| 5 | Auditoría de vulnerabilidades + escaneo de secretos | Rápido. Nunca opcional. |
+| 5 | Auditoría de vulnerabilidades + escaneo de secretos + **existencia de paquetes (anti-slopsquatting) + lockfile íntegro** | Rápido. Nunca opcional. |
 | 6 | E2E de caminos críticos | Lento. Solo los flujos del spec. |
 | 7 | Mutación (núcleo o archivos cambiados) | Muy lento. Incremental aquí, completo de noche. |
 
@@ -81,6 +81,7 @@ GATE: <PASA | BLOQUEA> — <proyecto> @ <commit/rama>
 | Cobertura nueva| vitest --coverage        | 71%       | ≥80%   | FALLA  |
 | Complejidad    | eslint                   | máx 14    | ≤10    | FALLA  |
 | Secretos       | gitleaks detect          | 0         | 0      | OK     |
+| Paquetes       | lockfile + existencia    | 0 fantasma| 0      | OK     |
 | Mutación       | —                        | —         | ≥60%   | NO VERIFICADO |
 
 BLOQUEA por: cobertura de código nuevo, complejidad en src/orders/calc.ts:88

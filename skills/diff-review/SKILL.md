@@ -51,7 +51,8 @@ Basado en las categorías con más incidencia real (OWASP Top 10:2025):
 
 - **Control de acceso roto** (#1 histórico): ¿se verifica que el usuario sea dueño del recurso, o basta con estar autenticado? ¿Se puede cambiar un id en la URL y ver lo ajeno? ¿Se confía en algo que llega del cliente para decidir permisos?
 - **Configuración insegura**: depuración activa, CORS abierto, cabeceras faltantes, buckets públicos, valores por defecto.
-- **Cadena de suministro**: dependencia nueva sin auditar, versión sin fijar, script de instalación.
+- **Cadena de suministro**: dependencia nueva sin auditar, versión sin fijar, script de instalación. **Slopsquatting**: si el diff añade un paquete, verificar que **exista de verdad** y sea el nombre correcto (los agentes alucinan paquetes; atacantes los registran) — comprobar en el registro oficial, no fiarse del nombre.
+- **Código agéntico / con IA** (si aplica, OWASP LLM 2025 + Agentic): ¿entra input no confiable en el prompt sin delimitar (prompt injection)? ¿el agente tiene más herramientas/permisos/autonomía de los que la tarea necesita (excessive agency)? ¿una acción de alto impacto corre sin aprobación humana? ¿se validan las salidas antes de ejecutarlas? Ver la skill `ai-security`.
 - **Criptografía y secretos**: claves en el código, aleatoriedad débil, hashing de contraseñas casero, tokens sin expiración.
 - **Inyección**: consultas concatenadas, comandos del sistema con entrada de usuario, plantillas sin escapar.
 - **Autenticación**: sesiones que no expiran, recuperación de cuenta débil, sin límite de intentos.

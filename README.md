@@ -1,6 +1,8 @@
 # dev-skills — ingeniería de software para agentes de IA
 
-Pack de skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada.
+36 skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada. Funcionan en Claude Code y en cualquier agente compatible con el formato [Agent Skills](https://agentskills.io) (Codex, OpenCode, Cursor…).
+
+> **EN —** 36 software-engineering skills for coding agents. Spec before code (`intake` → `constitution` → `architecture` → `feature` → `quality-gate` → `deploy`), measurable quality gates that block delivery, human review where metrics are blind, diagnosis-first repair (`triage` → `fixer` / `ui-bug` / `agent-debug` / `refactor` / `rebuild`), security baselines (OWASP Top 10:2025 + OWASP LLM/Agentic), and domain packs for web, API, bots, automation, desktop and mobile. Written in Spanish; descriptions carry English triggers so they fire in either language.
 
 Sirve igual para un programador con veinte años de oficio y para alguien que solo sabe describir lo que quiere: el agente detecta el registro, hace las preguntas que un desarrollador le haría a su cliente, **recomienda las restricciones y métricas de calidad**, construye por rebanadas verificadas y bloquea la entrega cuando los números no dan.
 
@@ -32,12 +34,14 @@ Ejemplo real de conversación con `intake` activo:
 
 ## Instalación
 
-Copia las carpetas que quieras a tu directorio de skills:
-
 ```bash
-git clone https://github.com/<tu-usuario>/dev-skills.git
-cp -r dev-skills/skills/* ~/.claude/skills/
+git clone https://github.com/angelgabrieljacintohuayllasco/dev-skills.git
+cd dev-skills
+./install.sh                                        # todas, a ~/.claude/skills
+./install.sh ~/.claude/skills intake constitution quality-gate   # solo algunas
 ```
+
+Windows: `.\install.ps1` o `.\install.ps1 -Skills intake,constitution,quality-gate`. Otro agente: pasa su directorio de skills como destino, o copia las carpetas de `skills/` a mano.
 
 Cada carpeta es independiente: puedes llevarte solo `intake`, `constitution` y `quality-gate` y ya tienes el 80% del valor.
 
@@ -57,11 +61,13 @@ Cada carpeta es independiente: puedes llevarte solo `intake`, `constitution` y `
 | `diff-review` | Revisión humana por riesgo, donde las métricas son ciegas |
 | `tech-debt` | Medir la deuda, cobrar interés visible, plan de pago |
 | `project-memory` | Memoria del proyecto en el repo (`AGENTS.md` + `docs/project/`) |
+| `agentic-coding` | El método del agente: explorar → planear → ejecutar → verificar con evidencia → revisión adversarial en contexto fresco |
 
 ### Transversales
 | Skill | Para qué |
 |---|---|
 | `app-security` | Baseline defensivo (OWASP Top 10:2025) por tipo de aplicación |
+| `ai-security` | Lo que usa IA o agentes: OWASP LLM Top 10 + Agentic, prompt injection, agencia excesiva, slopsquatting |
 | `data-layer` | Modelado, migraciones seguras, integridad, respaldos probados |
 | `observability` | Que el sistema avise antes que el cliente |
 | `performance` | Medir, arreglar lo que domina, volver a medir |
@@ -135,6 +141,23 @@ Plantillas listas en `skills/constitution/templates/`. Si usas una bóveda de no
 - Un cambio, un propósito. No se mezcla fix con refactor con feature.
 - Los umbrales solo suben.
 - Lo que no se documenta se vuelve a pagar.
+
+## Validar
+
+```bash
+python scripts/validate_skills.py
+```
+
+Comprueba frontmatter (`name`, `description`), nombre = carpeta, límites de longitud y que no haya rutas personales ni correos. Corre en CI en cada push.
+
+## Packs hermanos
+
+- [`agent-modes`](https://github.com/angelgabrieljacintohuayllasco/agent-modes) — modos de trabajo del agente: `extremly` (pensar al extremo), `maraton` (ejecutar sin parar con estado en disco), `investigacion` (fuentes clasificadas), `ver-video`, `mcp-master`, `obsidian-memory`.
+- [`marketing-skills`](https://github.com/angelgabrieljacintohuayllasco/marketing-skills) — Meta Ads y TikTok Ads con guardarraíles de dinero.
+
+## Licencia
+
+MIT.
 
 ## Fuentes
 
