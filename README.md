@@ -1,3 +1,5 @@
+<p align="center"><b>English</b> · <a href="README.es.md">Español</a></p>
+
 <p align="center">
   <img src="assets/clipboard-soyjak.jpg" alt="Clipboard Skills — the agent that checks the list before saying done" width="640">
 </p>
@@ -16,186 +18,186 @@
 
 ---
 
-36 skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada. Funcionan en Claude Code y en cualquier agente compatible con el formato [Agent Skills](https://agentskills.io) (Codex, OpenCode, Cursor…).
+36 skills (`SKILL.md`) that make an AI coding agent work **like a professional engineer**, not like a code generator that says "done" without verifying anything. They work in Claude Code and in any agent that supports the [Agent Skills](https://agentskills.io) format (Codex, OpenCode, Cursor…).
 
-> **EN —** 36 software-engineering skills for coding agents. Spec before code (`intake` → `constitution` → `architecture` → `feature` → `quality-gate` → `deploy`), measurable quality gates that block delivery, human review where metrics are blind, diagnosis-first repair (`triage` → `fixer` / `ui-bug` / `agent-debug` / `refactor` / `rebuild`), security baselines (OWASP Top 10:2025 + OWASP LLM/Agentic), and domain packs for web, API, bots, automation, desktop and mobile. Written in Spanish; descriptions carry English triggers so they fire in either language.
->
-> ```bash
-> git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git && cd clipboard-skills && ./install.sh
-> ```
+```bash
+git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git && cd clipboard-skills && ./install.sh
+```
 
-## El tipo del clipboard
+> The skill bodies are written in Spanish. Every `description` carries English trigger phrases, so they fire in either language, and the agent answers in whatever language you use.
 
-Sirve igual para un programador con veinte años de oficio y para alguien que solo sabe describir lo que quiere: el agente detecta el registro, hace las preguntas que un desarrollador le haría a su cliente, **recomienda las restricciones y métricas de calidad**, construye por rebanadas verificadas y **bloquea la entrega cuando los números no dan**. Es el tipo del clipboard: no firma sin repasar la lista.
+## The clipboard guy
 
-Antes / después, con `quality-gate` instalado:
+Works the same for an engineer with twenty years of experience and for someone who can only describe what they want: the agent detects the register, asks the questions a developer would ask a client, **recommends the constraints and quality metrics**, builds in verified slices and **blocks delivery when the numbers don't add up**. That's the clipboard guy: he doesn't sign off without going through the list.
 
-| Sin clipboard | Con clipboard |
+Before / after, with `quality-gate` installed:
+
+| Without clipboard | With clipboard |
 |---|---|
-| "Listo, implementé el login ✅" | `GATE: BLOQUEA — cobertura nueva 71% (≥80%), complejidad 14 en src/auth/session.ts:88 (≤10)` |
-| "Los tests pasan" (no corrió nada) | Salida real del comando pegada. Sin salida, no se ejecutó. |
-| Instala `requests-oauth2-helper` (no existe) | Verifica que el paquete exista antes de instalar (anti-slopsquatting) |
-| Rellena el hueco de la spec en silencio | Pregunta, o declara el supuesto por escrito |
+| "Done, login implemented ✅" | `GATE: BLOCKED — new-code coverage 71% (≥80%), complexity 14 at src/auth/session.ts:88 (≤10)` |
+| "Tests pass" (ran nothing) | Real command output pasted. No output, it didn't run. |
+| Installs `requests-oauth2-helper` (doesn't exist) | Verifies the package exists before installing (anti-slopsquatting) |
+| Silently fills the gap in the spec | Asks, or writes the assumption down |
 
-## La idea
+## The idea
 
-Tres prácticas que hoy sostienen el desarrollo asistido por IA:
+Three practices that hold AI-assisted development together today:
 
-1. **Restricciones antes que revisión.** Robert C. Martin dejó de leer el código de sus agentes: en su lugar los rodea de restricciones extremas y mide cobertura de pruebas, estructura de dependencias, complejidad ciclomática, tamaño de módulos y pruebas de mutación. De esas métricas infiere la calidad. Este pack convierte eso en un archivo por proyecto (`constitution.md`) y en un comando (`gate`) que falla con código distinto de cero.
-2. **La máquina no ve todo.** La crítica de Grady Booch también es cierta: las métricas no detectan un permiso invertido ni una migración destructiva. Por eso hay una segunda capa: lista corta de zonas donde la revisión humana sigue siendo obligatoria (`diff-review`).
-3. **Especificación antes que código.** El flujo que reemplazó al "vibe coding": aclarar la intención, marcar los huecos en vez de rellenarlos, planificar bajo restricciones, implementar, verificar contra la especificación (`intake` → `constitution` → `architecture` → `feature` → `quality-gate`).
+1. **Constraints before review.** Robert C. Martin stopped reading his agents' code: instead he surrounds them with extreme constraints and measures test coverage, dependency structure, cyclomatic complexity, module size and mutation score. He infers quality from those metrics. This pack turns that into one file per project (`constitution.md`) and one command (`gate`) that exits non-zero.
+2. **The machine doesn't see everything.** Grady Booch's objection is also true: metrics don't catch an inverted permission check or a destructive migration. So there is a second layer: a short list of zones where human review stays mandatory (`diff-review`).
+3. **Spec before code.** The flow that replaced "vibe coding": clarify intent, mark the gaps instead of filling them, plan under constraints, implement, verify against the spec (`intake` → `constitution` → `architecture` → `feature` → `quality-gate`).
 
-Y un dato que ordena las prioridades: según el informe de DORA sobre IA, **la IA amplifica el sistema que ya tienes**. Con un pipeline débil, lo que se acelera es la deuda técnica.
+And one fact that orders the priorities: according to DORA's AI report, **AI amplifies the system you already have**. With a weak pipeline, what accelerates is technical debt.
 
-## Cómo se usa
+## How it's used
 
 ```
-PEDIDO
-  ├─ vago / proyecto nuevo ─────────► intake ──► constitution ──► architecture ──► feature
-  ├─ funcionalidad en repo vivo ────► feature
-  ├─ algo roto ─────────────────────► triage ──► fixer / ui-bug / agent-debug / refactor / rebuild
-  └─ terminado ─────────────────────► quality-gate ──► deploy ──► project-memory
+REQUEST
+  ├─ vague / new project ───────────► intake ──► constitution ──► architecture ──► feature
+  ├─ feature in a live repo ────────► feature
+  ├─ something broken ──────────────► triage ──► fixer / ui-bug / agent-debug / refactor / rebuild
+  └─ finished ──────────────────────► quality-gate ──► deploy ──► project-memory
 ```
 
-Ejemplo real de conversación con `intake` activo:
+Real conversation with `intake` active:
 
-> **Usuario:** hazme un CRM de WhatsApp
-> **Agente:** Siete preguntas y te propongo las reglas de calidad. (1) ¿Canal oficial con API o no oficial? — recomiendo oficial: el no oficial es gratis pero puede costarte el número. (2) ¿Cuántos mensajes al día?… (7) ¿Qué es lo peor que pasa si falla a las 3 AM?
-> **Agente:** Perfil recomendado **P2**: cobertura ≥80% en código nuevo, complejidad ≤10, cero secretos en el repo, pruebas de conversación y de duplicados, gate en un comando. Sube ~20% el tiempo y baja mucho el riesgo. ¿Vamos así?
+> **User:** build me a WhatsApp CRM
+> **Agent:** Seven questions, then I'll propose the quality rules. (1) Official API channel or unofficial? — I recommend official: unofficial is free but can cost you the phone number. (2) How many messages a day?… (7) What's the worst thing that happens if it fails at 3 AM?
+> **Agent:** Recommended profile **P2**: ≥80% coverage on new code, complexity ≤10, zero secrets in the repo, conversation and duplicate tests, gate in one command. Adds ~20% time, removes most of the risk. Go?
 
-## Instalación
+## Install
 
 ```bash
 git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git
 cd clipboard-skills
-./install.sh                                        # todas, a ~/.claude/skills
-./install.sh ~/.claude/skills intake constitution quality-gate   # solo algunas
+./install.sh                                        # all, into ~/.claude/skills
+./install.sh ~/.claude/skills intake constitution quality-gate   # only some
 ```
 
-Windows: `.\install.ps1` o `.\install.ps1 -Skills intake,constitution,quality-gate`. Otro agente: pasa su directorio de skills como destino, o copia las carpetas de `skills/` a mano.
+Windows: `.\install.ps1` or `.\install.ps1 -Skills intake,constitution,quality-gate`. Other agent: pass its skills directory as the destination, or copy the folders under `skills/` by hand.
 
-Cada carpeta es independiente: puedes llevarte solo `intake`, `constitution` y `quality-gate` y ya tienes el 80% del valor.
+Each folder is independent: take only `intake`, `constitution` and `quality-gate` and you already have 80% of the value.
 
-## Las skills
+## The skills
 
-### Núcleo del proceso
-| Skill | Para qué |
+### Process core
+| Skill | What for |
 |---|---|
-| `dev-router` | Qué skill toca y en qué orden; adapta el registro a quien pide |
-| `intake` | La entrevista de descubrimiento: spec, criterios de aceptación, supuestos, perfil de rigor |
-| `constitution` | Restricciones y umbrales verificables + instalación de los gates |
-| `architecture` | Decisiones caras de revertir, con ADR y límites de dependencias |
-| `feature` | Implementar una rebanada vertical bajo la constitución |
-| `test-strategy` | Qué probar, en qué nivel, y qué NO probar |
-| `quality-gate` | Correr las métricas y **bloquear** la entrega si fallan |
-| `code-standard` | Cómo se escribe: nombres, funciones, KISS, YAGNI, DRY, catálogo de olores |
-| `diff-review` | Revisión humana por riesgo, donde las métricas son ciegas |
-| `tech-debt` | Medir la deuda, cobrar interés visible, plan de pago |
-| `project-memory` | Memoria del proyecto en el repo (`AGENTS.md` + `docs/project/`) |
-| `agentic-coding` | El método del agente: explorar → planear → ejecutar → verificar con evidencia → revisión adversarial en contexto fresco |
+| `dev-router` | Which skill applies and in what order; adapts the register to who is asking |
+| `intake` | The discovery interview: spec, acceptance criteria, assumptions, rigor profile |
+| `constitution` | Verifiable constraints and thresholds + wiring of the gates |
+| `architecture` | Decisions that are expensive to reverse, with ADRs and dependency boundaries |
+| `feature` | Implement a vertical slice under the constitution |
+| `test-strategy` | What to test, at which level, and what NOT to test |
+| `quality-gate` | Run the metrics and **block** delivery if they fail |
+| `code-standard` | How code is written: names, functions, KISS, YAGNI, DRY, smell catalog |
+| `diff-review` | Risk-based human review, where metrics are blind |
+| `tech-debt` | Measure the debt, make the interest visible, payment plan |
+| `project-memory` | Project memory inside the repo (`AGENTS.md` + `docs/project/`) |
+| `agentic-coding` | The agent's method: explore → plan → execute → verify with evidence → adversarial review in fresh context |
 
-### Transversales
-| Skill | Para qué |
+### Cross-cutting
+| Skill | What for |
 |---|---|
-| `app-security` | Baseline defensivo (OWASP Top 10:2025) por tipo de aplicación |
-| `ai-security` | Lo que usa IA o agentes: OWASP LLM Top 10 + Agentic, prompt injection, agencia excesiva, slopsquatting |
-| `data-layer` | Modelado, migraciones seguras, integridad, respaldos probados |
-| `observability` | Que el sistema avise antes que el cliente |
-| `performance` | Medir, arreglar lo que domina, volver a medir |
-| `deploy` | Publicar de forma que se pueda deshacer |
+| `app-security` | Defensive baseline (OWASP Top 10:2025) per application type |
+| `ai-security` | Anything that uses AI or agents: OWASP LLM Top 10 + Agentic, prompt injection, excessive agency, slopsquatting |
+| `data-layer` | Modeling, safe migrations, integrity, tested backups |
+| `observability` | The system warns before the client does |
+| `performance` | Measure, fix what dominates, measure again |
+| `deploy` | Publish in a way that can be undone |
 
-### Dominios
-| Skill | Para qué |
+### Domains
+| Skill | What for |
 |---|---|
-| `web-app` | Webs y aplicaciones web: estados, formularios, accesibilidad, responsive, SEO |
-| `api-backend` | Contratos, idempotencia, reintentos, webhooks, trabajos en segundo plano |
-| `bot-dev` | Bots de mensajería: canal, estado, resiliencia, escalamiento a humano |
-| `automation` | Scripts, cron, scraping, ETL: idempotente, reanudable y ruidoso al fallar |
-| `desktop-app` | Electron/Tauri/nativo: puente seguro, empaquetado, firma, actualización |
-| `mobile-app` | Android/iOS/APK: permisos, sin conexión, firma, requisitos de tienda |
+| `web-app` | Websites and web apps: states, forms, accessibility, responsive, SEO |
+| `api-backend` | Contracts, idempotency, retries, webhooks, background jobs |
+| `bot-dev` | Messaging bots: channel, state, resilience, handoff to a human |
+| `automation` | Scripts, cron, scraping, ETL: idempotent, resumable and loud when failing |
+| `desktop-app` | Electron/Tauri/native: secure bridge, packaging, signing, updates |
+| `mobile-app` | Android/iOS/APK: permissions, offline, signing, store requirements |
 
-### Diagnóstico y reparación
-| Skill | Para qué |
+### Diagnosis and repair
+| Skill | What for |
 |---|---|
-| `triage` | ¿Parchar, reestructurar, depurar el agente o rehacer? Solo lectura |
-| `fixer` | Reproducir, causa raíz, fix quirúrgico y prueba de regresión |
-| `ui-bug` | Bugs visuales e interactivos: se diagnostican mirando |
-| `agent-debug` | Bots de IA que deciden mal: estado, prompt, clasificadores, herramientas, datos |
-| `refactor` | Reestructurar con el comportamiento congelado |
-| `rebuild` | Rehacer rescatando reglas de negocio y bugs viejos |
-| `env-doctor` | Por qué no arranca: todas las capas antes de concluir |
+| `triage` | Patch, restructure, debug the agent or rebuild? Read-only |
+| `fixer` | Reproduce, root cause, surgical fix and regression test |
+| `ui-bug` | Visual and interactive bugs: diagnosed by looking |
+| `agent-debug` | AI bots that decide wrong: state, prompt, classifiers, tools, data |
+| `refactor` | Restructure with behavior frozen |
+| `rebuild` | Rebuild while rescuing business rules and old bugs |
+| `env-doctor` | Why it won't start: every layer before concluding |
 
-### Apoyo
-| Skill | Para qué |
+### Support
+| Skill | What for |
 |---|---|
-| `consulta` | Responder y documentar sin tocar código |
-| `valida-idea` | Veredicto honesto antes de construir, con criterio de muerte |
-| `batch` | Un cambio repetitivo en muchos archivos, verificado |
-| `readme-generator` | README real, sin comandos inventados |
-| `changelog-generator` | Commits → consecuencias para quien usa |
+| `consulta` | Answer and document without touching code |
+| `valida-idea` | Honest verdict before building, with a kill criterion |
+| `batch` | One repetitive change across many files, verified |
+| `readme-generator` | A real README, no invented commands |
+| `changelog-generator` | Commits → consequences for whoever uses it |
 
-## Perfiles de rigor
+## Rigor profiles
 
-| | P1 Prototipo | P2 Estándar | P3 Crítico |
+| | P1 Prototype | P2 Standard | P3 Critical |
 |---|---|---|---|
-| Cuándo | demo, uso personal | producto con usuarios | dinero, datos personales, irreversible |
-| Cobertura (código nuevo) | — | ≥80% | ≥90% núcleo |
-| Mutación | — | ≥60% | ≥80% |
-| Complejidad por función | ≤15 | ≤10 | ≤10 |
-| Archivo | ≤600 LOC | ≤400 LOC | ≤300 LOC |
-| Ciclos de dependencias | evitar | 0 | 0 |
-| Revisión humana | no | zonas sensibles | todo el dominio |
-| Rollback | — | documentado | ensayado |
+| When | demo, personal use | product with users | money, personal data, irreversible |
+| Coverage (new code) | — | ≥80% | ≥90% core |
+| Mutation | — | ≥60% | ≥80% |
+| Complexity per function | ≤15 | ≤10 | ≤10 |
+| File | ≤600 LOC | ≤400 LOC | ≤300 LOC |
+| Dependency cycles | avoid | 0 | 0 |
+| Human review | no | sensitive zones | whole domain |
+| Rollback | — | documented | rehearsed |
 
-Los umbrales salen de referencias públicas: el perfil por defecto de SonarQube (80% de cobertura en código nuevo, ≤3% duplicación, complejidad cognitiva ≤15), el límite clásico de McCabe (complejidad ciclomática ≤10) y la práctica habitual de mutación (75-85% es sólido). Se ajustan por proyecto **con motivo escrito**, y nunca bajan: trinquete.
+The thresholds come from public references: SonarQube's default quality profile (80% coverage on new code, ≤3% duplication, cognitive complexity ≤15), McCabe's classic limit (cyclomatic complexity ≤10) and common mutation-testing practice (75-85% is solid). They are adjusted per project **with a written reason**, and they never go down: ratchet.
 
-## Convenciones de archivos
+## File conventions
 
 ```
-AGENTS.md                      # contexto operativo para agentes y personas
-docs/project/spec.md           # qué se construye y criterios de aceptación
-docs/project/constitution.md   # restricciones y umbrales, con su comando
-docs/project/architecture.md   # mapa + decisions/ADR-000X.md
-docs/project/state.md          # estado, pendientes, zonas rojas
-docs/project/bugs.md           # síntoma → causa raíz → fix → prevención
-docs/project/gotchas.md        # trampas no obvias
-docs/project/runbook.md        # desplegar, revertir, restaurar
+AGENTS.md                      # operating context for agents and people
+docs/project/spec.md           # what is being built and acceptance criteria
+docs/project/constitution.md   # constraints and thresholds, with their command
+docs/project/architecture.md   # map + decisions/ADR-000X.md
+docs/project/state.md          # status, pending items, red zones
+docs/project/bugs.md           # symptom → root cause → fix → prevention
+docs/project/gotchas.md        # non-obvious traps
+docs/project/runbook.md        # deploy, roll back, restore
 ```
 
-Plantillas listas en `skills/constitution/templates/`. Si usas una bóveda de notas (Obsidian u otra), `project-memory` explica cómo espejar estos archivos por proyecto sin duplicar la fuente de verdad.
+Templates ready in `skills/constitution/templates/`. If you keep a notes vault (Obsidian or other), `project-memory` explains how to mirror these files per project without duplicating the source of truth.
 
-## Principios que atraviesan todo el pack
+## Principles that run through the whole pack
 
-- Sin salida de comando pegada, no se ejecutó. "Los tests pasan" no es evidencia.
-- Todo hueco se pregunta o se declara como supuesto. Nunca se rellena en silencio.
-- Toda pregunta lleva recomendación por defecto: preguntar sin recomendar es trasladar el trabajo.
-- Un cambio, un propósito. No se mezcla fix con refactor con feature.
-- Los umbrales solo suben.
-- Lo que no se documenta se vuelve a pagar.
+- No pasted command output, it didn't run. "Tests pass" is not evidence.
+- Every gap is asked about or declared as an assumption. Never filled silently.
+- Every question comes with a default recommendation: asking without recommending is offloading the work.
+- One change, one purpose. No mixing fix with refactor with feature.
+- Thresholds only go up.
+- What isn't documented gets paid for again.
 
-## Validar
+## Validate
 
 ```bash
 python scripts/validate_skills.py
 ```
 
-Comprueba frontmatter (`name`, `description`), nombre = carpeta, límites de longitud y que no haya rutas personales ni correos. Corre en CI en cada push.
+Checks frontmatter (`name`, `description`), name = folder, length limits and that there are no personal paths or emails. Runs in CI on every push.
 
-## Packs hermanos
+## Sibling packs
 
-- [`agent-modes`](https://github.com/angelgabrieljacintohuayllasco/agent-modes) — modos de trabajo del agente: `extremly` (pensar al extremo), `maraton` (ejecutar sin parar con estado en disco), `investigacion` (fuentes clasificadas), `ver-video`, `mcp-master`, `obsidian-memory`.
-- [`marketing-skills`](https://github.com/angelgabrieljacintohuayllasco/marketing-skills) — Meta Ads y TikTok Ads con guardarraíles de dinero.
+- [`agent-modes`](https://github.com/angelgabrieljacintohuayllasco/agent-modes) — work modes for the agent: `extremly` (extreme problem-solving), `maraton` (unattended execution with on-disk state), `investigacion` (source-graded research), `ver-video`, `mcp-master`, `obsidian-memory`.
+- [`marketing-skills`](https://github.com/angelgabrieljacintohuayllasco/marketing-skills) — Meta Ads and TikTok Ads with hard money guardrails.
 
-## Licencia
+## License
 
-MIT. El tipo del clipboard es un soyjak: dominio público de internet, como corresponde.
+MIT. The clipboard guy is a soyjak: internet public domain, as it should be.
 
-## Fuentes
+## Sources
 
-- Robert C. Martin sobre no revisar el código de sus agentes y medir en su lugar — [tweet](https://x.com/unclebobmartin/status/2044114698451476492), [cobertura del debate](https://startupfortune.com/uncle-bob-martin-says-he-no-longer-reads-ai-generated-code-and-the-developer-world-is-split/)
-- GitHub Spec Kit — flujo constitution → specify → clarify → plan → tasks → implement — [repo](https://github.com/github/spec-kit)
-- SonarQube, perfil de calidad por defecto y métricas — [documentación](https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates)
-- Pruebas de mutación, umbrales prácticos — [guía Stryker](https://qaskills.sh/blog/mutation-testing-stryker-guide-2026)
-- DORA, ROI del desarrollo asistido por IA — [informe](https://dora.dev/ai/roi/report/)
-- OWASP Top 10:2025 — [listado](https://owasp.org/Top10/2025/)
-- AGENTS.md como contexto de repo para agentes — [especificación](https://agentsstandard.com/)
+- Robert C. Martin on not reviewing his agents' code and measuring instead — [tweet](https://x.com/unclebobmartin/status/2044114698451476492), [coverage of the debate](https://startupfortune.com/uncle-bob-martin-says-he-no-longer-reads-ai-generated-code-and-the-developer-world-is-split/)
+- GitHub Spec Kit — constitution → specify → clarify → plan → tasks → implement flow — [repo](https://github.com/github/spec-kit)
+- SonarQube, default quality profile and metrics — [documentation](https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates)
+- Mutation testing, practical thresholds — [Stryker guide](https://qaskills.sh/blog/mutation-testing-stryker-guide-2026)
+- DORA, ROI of AI-assisted development — [report](https://dora.dev/ai/roi/report/)
+- OWASP Top 10:2025 — [list](https://owasp.org/Top10/2025/)
+- AGENTS.md as repo context for agents — [specification](https://agentsstandard.com/)
