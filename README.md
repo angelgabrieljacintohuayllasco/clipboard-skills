@@ -1,10 +1,41 @@
-# dev-skills — ingeniería de software para agentes de IA
+<p align="center">
+  <img src="assets/clipboard-soyjak.jpg" alt="Clipboard Skills — the agent that checks the list before saying done" width="640">
+</p>
+
+<h1 align="center">clipboard-skills</h1>
+
+<p align="center"><b>Your AI agent says "done" without running a single test.<br>Clipboard Skills makes it check the list first.</b></p>
+
+<p align="center">
+  <a href="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions"><img src="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions/workflows/validate.yml/badge.svg" alt="validate skills"></a>
+  <img src="https://img.shields.io/badge/skills-36-black" alt="36 skills">
+  <img src="https://img.shields.io/badge/Claude_Code-%E2%9C%93-black" alt="Claude Code">
+  <img src="https://img.shields.io/badge/Codex_%C2%B7_OpenCode_%C2%B7_Cursor-%E2%9C%93-black" alt="Codex OpenCode Cursor">
+  <img src="https://img.shields.io/badge/license-MIT-black" alt="MIT">
+</p>
+
+---
 
 36 skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada. Funcionan en Claude Code y en cualquier agente compatible con el formato [Agent Skills](https://agentskills.io) (Codex, OpenCode, Cursor…).
 
 > **EN —** 36 software-engineering skills for coding agents. Spec before code (`intake` → `constitution` → `architecture` → `feature` → `quality-gate` → `deploy`), measurable quality gates that block delivery, human review where metrics are blind, diagnosis-first repair (`triage` → `fixer` / `ui-bug` / `agent-debug` / `refactor` / `rebuild`), security baselines (OWASP Top 10:2025 + OWASP LLM/Agentic), and domain packs for web, API, bots, automation, desktop and mobile. Written in Spanish; descriptions carry English triggers so they fire in either language.
+>
+> ```bash
+> git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git && cd clipboard-skills && ./install.sh
+> ```
 
-Sirve igual para un programador con veinte años de oficio y para alguien que solo sabe describir lo que quiere: el agente detecta el registro, hace las preguntas que un desarrollador le haría a su cliente, **recomienda las restricciones y métricas de calidad**, construye por rebanadas verificadas y bloquea la entrega cuando los números no dan.
+## El tipo del clipboard
+
+Sirve igual para un programador con veinte años de oficio y para alguien que solo sabe describir lo que quiere: el agente detecta el registro, hace las preguntas que un desarrollador le haría a su cliente, **recomienda las restricciones y métricas de calidad**, construye por rebanadas verificadas y **bloquea la entrega cuando los números no dan**. Es el tipo del clipboard: no firma sin repasar la lista.
+
+Antes / después, con `quality-gate` instalado:
+
+| Sin clipboard | Con clipboard |
+|---|---|
+| "Listo, implementé el login ✅" | `GATE: BLOQUEA — cobertura nueva 71% (≥80%), complejidad 14 en src/auth/session.ts:88 (≤10)` |
+| "Los tests pasan" (no corrió nada) | Salida real del comando pegada. Sin salida, no se ejecutó. |
+| Instala `requests-oauth2-helper` (no existe) | Verifica que el paquete exista antes de instalar (anti-slopsquatting) |
+| Rellena el hueco de la spec en silencio | Pregunta, o declara el supuesto por escrito |
 
 ## La idea
 
@@ -35,8 +66,8 @@ Ejemplo real de conversación con `intake` activo:
 ## Instalación
 
 ```bash
-git clone https://github.com/angelgabrieljacintohuayllasco/dev-skills.git
-cd dev-skills
+git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git
+cd clipboard-skills
 ./install.sh                                        # todas, a ~/.claude/skills
 ./install.sh ~/.claude/skills intake constitution quality-gate   # solo algunas
 ```
@@ -157,7 +188,7 @@ Comprueba frontmatter (`name`, `description`), nombre = carpeta, límites de lon
 
 ## Licencia
 
-MIT.
+MIT. El tipo del clipboard es un soyjak: dominio público de internet, como corresponde.
 
 ## Fuentes
 
