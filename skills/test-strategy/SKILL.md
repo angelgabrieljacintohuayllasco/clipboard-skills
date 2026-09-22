@@ -1,6 +1,6 @@
 ---
 name: test-strategy
-description: Use when deciding what to test and how — "no hay tests", "qué pruebo", "cómo testeo esto", "write tests", "add test coverage", "los tests son inútiles", flaky suites, slow suites, high coverage that still ships bugs, or converting acceptance criteria into automated tests. Designs the test suite: pyramid split, acceptance tests from spec, characterization tests for legacy, mutation testing, fixtures, what NOT to test. NO ejecuta el gate (quality-gate) ni fija umbrales (constitution).
+description: "Decide what and how to test: \"no hay tests\", \"qué pruebo\", \"write tests\", flaky or slow suites, useless coverage, legacy characterization tests, mutation testing."
 ---
 
 # Test-Strategy — la red que permite no leer cada línea

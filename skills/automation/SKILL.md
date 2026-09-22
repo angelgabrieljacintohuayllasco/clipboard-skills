@@ -1,6 +1,6 @@
 ---
 name: automation
-description: Use when building unattended automation — scripts, cron jobs, scrapers, ETL/data pipelines, file processing, system integrations, browser automation, bulk operations, "automatiza esto", "un script que cada día...", "scrape this site", "sincroniza X con Y", "procesa estos archivos". Covers idempotency, resumability, rate limits, credentials, failure notification and dry-run. NO para bots conversacionales (bot-dev) ni para APIs que atienden peticiones (api-backend).
+description: "Unattended scripts, cron jobs, scrapers, ETL, bulk file processing, browser automation. \"automatiza esto\", \"un script que cada día\", \"scrape this\". Idempotent, resumable, dry-run."
 ---
 
 # Automation — código que corre cuando nadie está mirando

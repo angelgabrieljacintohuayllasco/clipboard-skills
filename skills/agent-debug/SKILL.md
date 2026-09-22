@@ -1,6 +1,6 @@
 ---
 name: agent-debug
-description: Use when an LLM-powered bot or agent misbehaves — wrong replies, broken conversation flow, ignored instructions, wrong or duplicated tool calls, state bugs, misclassified messages, re-sending rejected data, loops, "no respeta el prompt", "el bot responde cualquier cosa", WhatsApp/Telegram/Discord bot decides wrong, AI agent picks the wrong action. NO es para errores de código con traza (fixer) ni para construir el bot desde cero (bot-dev).
+description: "LLM bot or agent behaves wrong: bad replies, ignores prompt, wrong/duplicate tool calls, loops, state bugs. \"el bot responde cualquier cosa\", \"no respeta el prompt\". Not for stack-trace errors (fixer)."
 ---
 
 # Agent-Debug — cuando el bug vive entre el prompt, el estado y los datos

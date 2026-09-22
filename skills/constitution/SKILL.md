@@ -1,6 +1,6 @@
 ---
 name: constitution
-description: Use to define or update a project's non-negotiable engineering constraints and automatic quality thresholds — "qué restricciones ponemos", "define las reglas del proyecto", "set up quality gates", "cuánta cobertura", "límites de complejidad", starting a new repo, or when an existing repo has no measurable definition of done. Writes docs/project/constitution.md (machine-checkable limits: coverage, mutation score, complexity, module size, dependency rules, security baseline) and wires the commands that enforce them. NO ejecuta las métricas (eso es quality-gate) ni escribe features.
+description: "Set a project's non-negotiable rules and measurable quality thresholds (coverage, complexity, size, security). \"define las reglas del proyecto\", new repo without definition of done."
 ---
 
 # Constitution — las restricciones que reemplazan a leer cada línea

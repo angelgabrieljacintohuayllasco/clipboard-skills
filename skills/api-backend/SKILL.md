@@ -1,6 +1,6 @@
 ---
 name: api-backend
-description: Use when building or changing a server, API or backend service — REST/GraphQL endpoints, webhooks, background jobs and queues, authentication, integrations with third-party APIs, "hazme una API", "add an endpoint", "el webhook falla", rate limits, versioning, contracts. Covers contract design, idempotency, error handling, pagination, retries and the backend-specific gate. NO cubre la interfaz (web-app) ni el modelado de datos en profundidad (data-layer).
+description: "Build or change an API, server, webhook, background job, queue, auth or third-party integration. \"hazme una API\", \"add an endpoint\", \"el webhook falla\". Contracts, idempotency, errors, retries."
 ---
 
 # API-Backend — contratos que otros van a depender de que no cambies

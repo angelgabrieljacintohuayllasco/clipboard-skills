@@ -1,6 +1,6 @@
 ---
 name: triage
-description: Use when a bug or problem report arrives and it's unclear whether to patch, refactor, debug the AI agent, or rebuild — especially after previous fix attempts failed, the project feels unmaintainable, or the user says "este proyecto está de basura", "no se puede arreglar", "otra vez el mismo bug", "ya lo intentamos antes", "this codebase is a mess". Read-only diagnosis with metrics, then a verdict and the skill to invoke. NO edita código durante el triage.
+description: "Bug report where the right move is unclear, especially after failed fixes: \"otra vez el mismo bug\", \"no se puede arreglar\", \"este proyecto es basura\". Read-only diagnosis, verdict, next skill."
 ---
 
 # Triage — ¿fix, refactor, agent-debug o rebuild?

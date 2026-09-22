@@ -1,6 +1,6 @@
 ---
 name: desktop-app
-description: Use when building or shipping a desktop application — Electron, Tauri, .NET/WPF, Qt, Python GUI (Tkinter/PySide), Java, native Windows/macOS/Linux apps, "una app de escritorio", "un programa para Windows", installers, auto-update, code signing, local database, offline behaviour, system tray/background. Covers process boundaries, security of native access, packaging, updates and the desktop-specific gate. NO para apps web (web-app) ni móviles (mobile-app).
+description: "Build or ship a desktop app: Electron, Tauri, .NET/WPF, Qt, Python GUI. \"app de escritorio\", \"programa para Windows\", installer, auto-update, signing, tray, offline. Use with ui-design."
 ---
 
 # Desktop-App — el software que corre en la máquina de otro
@@ -25,6 +25,10 @@ Eso cambia las prioridades: compatibilidad hacia atrás, actualización confiabl
 | Aplicación web | `web-app` |
 | Android/iOS | `mobile-app` |
 | No compila / entorno roto | `env-doctor` |
+
+## Diseño visual
+
+Toda pantalla nueva o rediseñada aplica `ui-design` antes de darse por terminada: tokens de tipografía, espaciado y color definidos primero, cero emojis, un solo set de iconos SVG, y verificación con capturas en los tamaños de ventana típicos. Una interfaz que funciona pero parece plantilla generada por IA no está lista.
 
 ## Regla de hierro: separar lo que dibuja de lo que tiene poder
 

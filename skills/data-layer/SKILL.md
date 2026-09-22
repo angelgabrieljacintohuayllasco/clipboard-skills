@@ -1,6 +1,6 @@
 ---
 name: data-layer
-description: Use when designing or changing how data is stored — schema design, tables/collections, relations, migrations, "qué base de datos uso", "cómo modelo esto", "add a column", "migrar datos", backups, imports/exports, data cleanup, or anything that can lose or corrupt records. Covers modeling, safe migrations, integrity, backups and restore drills. NO optimiza consultas lentas (performance) ni diseña la arquitectura general (architecture).
+description: "Store data: schema design, tables, relations, migrations, backups, imports, cleanup. \"cómo modelo esto\", \"add a column\", \"migrar datos\", anything that can lose records."
 ---
 
 # Data-Layer — lo único que no se puede volver a compilar

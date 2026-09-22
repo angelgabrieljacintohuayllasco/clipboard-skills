@@ -1,6 +1,6 @@
 ---
 name: consulta
-description: Use when the user asks a technical question, wants a concept explained, compares libraries or approaches, asks "cómo funciona X", "qué diferencia hay entre", "se puede hacer X", "which is better", "explain this code", or wants documentation written or improved for existing code — without changing any code. Answer first, verify against the installed version, recommend one option. NO aplica cambios; si el usuario quiere el cambio hecho, rutear a la skill de acción.
+description: "Technical question with no code change: explain a concept, compare libraries, \"cómo funciona X\", \"qué diferencia hay\", \"which is better\", explain this code. Answer first, recommend one."
 ---
 
 # Consulta — responder y documentar, sin tocar código

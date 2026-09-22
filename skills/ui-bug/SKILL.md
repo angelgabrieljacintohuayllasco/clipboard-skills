@@ -1,6 +1,6 @@
 ---
 name: ui-bug
-description: Use when a frontend problem is visual or interactive — broken layout, overlapping or invisible elements, wrong colors, z-index, responsive/mobile issues, buttons that do nothing, modals that won't open, scroll or focus bugs, "se ve mal", "no se ve", "el botón no hace nada", CSS roto, in React/Vue/Svelte, WordPress/CMS, Tauri/Electron or plain HTML. Diagnose by looking at the real DOM, computed styles and console — never by reading source alone. NO para lógica de negocio sin síntoma visual (fixer).
+description: "Visual or interactive frontend bug: broken layout, overlap, invisible element, z-index, responsive, dead button, modal, scroll/focus. \"se ve mal\", \"el botón no hace nada\". Inspect real DOM and console."
 ---
 
 # UI-Bug — se diagnostica mirando, no leyendo
@@ -20,7 +20,7 @@ Un bug de interfaz se diagnostica **mirando la pantalla real**. El DOM renderiza
 | Situación | Ruta |
 |---|---|
 | Lógica de negocio equivocada sin síntoma visual | `fixer` |
-| No hay bug: se quiere mejorar el diseño | `web-app` (checklist de entrega) |
+| No hay bug: se quiere mejorar el diseño | `ui-design` |
 | La página ni carga (500, build roto) | `fixer` / `env-doctor` |
 | Va lento pero se ve bien | `performance` |
 

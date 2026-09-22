@@ -1,6 +1,6 @@
 ---
 name: batch
-description: Use when one repetitive change must be applied across many files or targets — "renombra X en todo el proyecto", "agrega manejo de errores a todos los endpoints", "add type hints everywhere", "actualiza todos los imports", migrating an API across a codebase, bulk formatting or config updates. Plans the transform, shows a worked example, applies uniformly and verifies with the gate. NO para cambios que requieren criterio distinto en cada archivo sin patrón común.
+description: "Apply one repetitive change across many files: rename everywhere, update all imports, add error handling to every endpoint, codebase-wide migration or formatting."
 ---
 
 # Batch — un cambio, muchos destinos, cero sorpresas

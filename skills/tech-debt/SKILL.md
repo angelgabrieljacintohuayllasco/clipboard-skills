@@ -1,6 +1,6 @@
 ---
 name: tech-debt
-description: Use to inventory, quantify and prioritize technical debt, or to decide whether debt is worth taking — "el proyecto está lleno de parches", "cuánta deuda tenemos", "qué arreglo primero", "assess technical debt", "is this codebase salvageable", legacy audits, code generated fast by AI that now needs cleanup, or before promising a delivery date on a messy repo. Produces a measured debt register with interest cost and a payment plan. NO reestructura código (refactor), no reescribe el proyecto (rebuild), no fija umbrales (constitution).
+description: "Inventory and prioritize technical debt: \"está lleno de parches\", \"qué arreglo primero\", \"is this salvageable\", legacy or fast AI-generated code audit. Measured register and payment plan."
 ---
 
 # Tech-Debt — medir lo que el desorden cuesta por mes

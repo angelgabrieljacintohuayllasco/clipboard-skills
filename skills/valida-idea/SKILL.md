@@ -1,6 +1,6 @@
 ---
 name: valida-idea
-description: Use when someone proposes a new project, product, feature or technical approach and wants an honest viability assessment before writing code — "tengo una idea", "qué opinas de", "valdría la pena hacer", "es viable", "should I build this", evaluating a freelance gig before accepting it, or deciding whether to migrate/rewrite for business reasons. Brutal, evidence-based verdict with a kill criterion. NO evalúa código existente (triage) ni define el alcance de algo ya aprobado (intake).
+description: "Honest viability check before building: \"tengo una idea\", \"vale la pena hacer\", \"es viable\", \"should I build this\", evaluating a freelance gig. Evidence-based verdict with a kill criterion."
 ---
 
 # Valida-Idea — evaluación honesta, sin complacencia

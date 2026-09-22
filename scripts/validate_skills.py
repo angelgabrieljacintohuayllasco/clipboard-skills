@@ -6,7 +6,7 @@ Reglas:
   - skills/<nombre>/SKILL.md existe
   - frontmatter YAML con `name` y `description`
   - `name` == nombre de la carpeta, minúsculas, letras/números/guiones, <= 64 chars
-  - `description` no vacía y <= 1024 chars
+  - `description` no vacía, <= 260 chars; suma total <= 9000 (presupuesto del listado)
   - sin rutas personales (C:/Users/<x>, /home/<x>) ni correos
 
 Uso: python scripts/validate_skills.py [ruta_a_skills]
@@ -22,8 +22,15 @@ ROOT = os.path.abspath(ROOT)
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 PERSONAL_RE = re.compile(r"([A-Z]:[\/]Users[\/]|/home/[a-z]+/|/Users/[a-z]+/|[\w.+-]+@[\w-]+\.[a-z]{2,})", re.I)
 
+# Claude Code reparte un presupuesto fijo de caracteres entre las descripciones de
+# todas las skills instaladas. Si se pasa, las últimas del listado quedan sin
+# descripción y el modelo nunca las elige. Descripciones cortas = auto-invocación.
+MAX_DESC = 260
+MAX_TOTAL_DESC = 9000
+
 errors = []
 count = 0
+total_desc = 0
 
 for entry in sorted(os.listdir(ROOT)):
     folder = os.path.join(ROOT, entry)
@@ -54,8 +61,9 @@ for entry in sorted(os.listdir(ROOT)):
         errors.append(f"{entry}: frontmatter sin `description`")
     else:
         d = desc.group(1).strip().strip("'\"")
-        if len(d) > 1024:
-            errors.append(f"{entry}: description de {len(d)} chars (máx 1024)")
+        if len(d) > MAX_DESC:
+            errors.append(f"{entry}: description de {len(d)} chars (máx {MAX_DESC}); larga = truncada o fuera del listado = no se auto-invoca")
+        total_desc += len(d)
         if len(d) < 40:
             errors.append(f"{entry}: description muy corta ({len(d)} chars); no va a disparar")
     for root, _, files in os.walk(folder):
@@ -67,9 +75,12 @@ for entry in sorted(os.listdir(ROOT)):
             for hit in PERSONAL_RE.finditer(body):
                 errors.append(f"{os.path.relpath(p, ROOT)}: dato personal/ruta local `{hit.group(0)}`")
 
+if total_desc > MAX_TOTAL_DESC:
+    errors.append(f"suma de descriptions = {total_desc} chars (máx {MAX_TOTAL_DESC}); el listado de skills se trunca")
+
 if errors:
     print(f"FALLA — {len(errors)} problema(s) en {count} skills:")
     for e in errors:
         print("  -", e)
     sys.exit(1)
-print(f"OK — {count} skills válidas en {ROOT}")
+print(f"OK — {count} skills válidas en {ROOT} (descriptions: {total_desc} chars)")

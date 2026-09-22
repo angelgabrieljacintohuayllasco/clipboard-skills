@@ -1,6 +1,6 @@
 ---
 name: fixer
-description: Use when fixing bugs, resolving errors, diagnosing broken code, repairing imports, correcting config issues, patching production defects, troubleshooting build failures, fixing type errors, or resolving runtime exceptions in existing projects. También cuando el usuario pide corregir, arreglar o reparar código existente sin rehacerlo. Reproduce first, fix the root cause, leave a regression test. NO usar si el síntoma es visual (ui-bug), si el bot responde mal sin stack trace (agent-debug), o si ya fallaron 2 intentos sobre el mismo síntoma (triage).
+description: "Fix a bug, error, exception, failing build, type error or broken config in existing code. \"arregla\", \"corrige\", \"da error\". Reproduce, fix root cause, leave a regression test."
 ---
 
 # Fixer — corregir la causa, no callar el síntoma

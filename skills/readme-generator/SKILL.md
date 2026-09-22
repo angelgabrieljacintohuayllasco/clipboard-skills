@@ -1,6 +1,6 @@
 ---
 name: readme-generator
-description: Use when the user asks to generate, create or improve a README for a project — "hazme un README", "documenta el repo para GitHub", "write a README", onboarding docs for a public or shared repository. Inspects the real project (manifest, scripts, entry points, config) and writes an accurate README with install, usage, configuration and contribution steps. NO inventa funcionalidades ni comandos; no reemplaza las notas internas del proyecto (project-memory) ni AGENTS.md.
+description: "Write or improve a project README from the real code: \"hazme un README\", \"documenta el repo para GitHub\", \"write a README\"."
 ---
 
 # README-Generator — el documento que decide si alguien usa tu proyecto

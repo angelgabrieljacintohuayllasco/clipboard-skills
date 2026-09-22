@@ -1,6 +1,6 @@
 ---
 name: architecture
-description: Use when choosing a stack, structuring a new project, or making a decision that will be expensive to reverse — "qué stack uso", "cómo estructuro esto", "monolito o microservicios", "qué base de datos", "necesito una cola?", "which framework", adding a service/dependency/layer, or documenting an ADR. Picks boring, verifiable options sized to the real load, defines module boundaries and dependency direction, and records the decision. NO implementa la feature (feature) ni reestructura código existente (refactor).
+description: "Choose a stack or structure a project; decisions costly to reverse. \"qué stack uso\", \"cómo estructuro esto\", \"qué base de datos\", monolith vs services, new dependency. Writes an ADR."
 ---
 
 # Architecture — decidir lo caro de revertir, y dejarlo escrito

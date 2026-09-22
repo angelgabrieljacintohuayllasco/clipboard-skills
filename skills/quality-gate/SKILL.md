@@ -1,6 +1,6 @@
 ---
 name: quality-gate
-description: Use before calling any work done, delivering to a client, merging, or deploying — "¿está listo?", "revisa la calidad", "ya terminaste?", "verify this", "run the checks", "is this production ready". Runs the project's measurable gate (format, lint, types, tests, coverage on new code, mutation, complexity, module size, duplication, dependency cycles, vulnerabilities, secrets), reports real numbers vs thresholds, and BLOCKS delivery when something fails. Nunca declara "listo" sin salida de comandos reales. NO define los umbrales (constitution) ni arregla bugs (fixer).
+description: "Before saying done, delivering, merging or deploying: run lint, types, tests, coverage, security checks and report real output. \"está listo?\", \"verify this\", \"is this production ready\"."
 ---
 
 # Quality-Gate — "listo" es un código de salida, no una sensación

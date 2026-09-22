@@ -1,6 +1,6 @@
 ---
 name: agentic-coding
-description: Usar para trabajar como un agente de código de primer nivel en cualquier tarea seria de programación — cuando el usuario quiere que "lo hagas bien de verdad", "como un programador senior", "modo agente pro", "aplica las mejores prácticas", al arrancar un proyecto, o antes de una tarea grande donde la calidad importa. Aplica el método probado de agentic coding: loop explorar→planear→ejecutar→verificar→revisar, verificación con evidencia (no aserción), gestión agresiva del contexto, higiene de CLAUDE.md, spec-driven para features grandes, revisión adversarial en contexto fresco y el gauntlet de disciplina (tests+métricas) en vez de confiar a ciegas en el código generado. NO es para una duda puntual (eso es `consulta`) ni para ejecutar un objetivo largo sin parar (eso es `maraton`); es el estándar de CÓMO trabaja el agente.
+description: "Senior agentic coding method for any serious programming task: explore, plan, execute, verify with evidence, adversarial review. \"hazlo bien\", \"como senior\", starting a project or big task."
 ---
 
 # Agentic coding — trabajar como programador senior, no como autocompletar

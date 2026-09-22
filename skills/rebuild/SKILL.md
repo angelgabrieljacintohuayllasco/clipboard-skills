@@ -1,6 +1,6 @@
 ---
 name: rebuild
-description: Use when a project should be rebuilt from a solid base instead of patched — repeated failed fixes, unmaintainable monolith, no tests possible, architecture can't support what's being asked, "hay que rehacerlo", "empezar de cero", "este código no da para más", "rewrite this". Rescues business rules and past bugs first, builds a base that fixes the STRUCTURAL defect, and runs both systems until parity. NO usar sin triage previo ni por gusto de cambiar de stack.
+description: "Rebuild a project from a solid base instead of patching: repeated failed fixes, unmaintainable monolith. \"hay que rehacerlo\", \"empezar de cero\", \"rewrite this\". Rescue rules first, run in parallel to parity."
 ---
 
 # Rebuild — rehacer desde base sólida, sin perder lo aprendido

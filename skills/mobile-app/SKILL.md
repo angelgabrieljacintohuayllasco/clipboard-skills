@@ -1,6 +1,6 @@
 ---
 name: mobile-app
-description: Use when building or shipping a mobile app or APK — Android/iOS, Kotlin/Swift, React Native, Flutter, Capacitor/Cordova, PWA-to-app, "hazme una app para el celular", "genera el APK", "subirla a Play Store", permissions, push notifications, offline storage, signing, store requirements and releases. Covers platform constraints, permissions, offline, release/signing and the mobile-specific gate. NO para apps de escritorio (desktop-app) ni sitios web responsivos (web-app).
+description: "Build or ship a mobile app or APK: Android/iOS, Kotlin, Swift, React Native, Flutter, Capacitor. \"app para el celular\", \"genera el APK\", Play Store, push, permissions. Use with ui-design."
 ---
 
 # Mobile-App — el entorno más hostil en el que va a correr tu código
@@ -26,6 +26,10 @@ Lo que en web es un ajuste rápido, aquí es una versión nueva que la gente pue
 | Aplicación de escritorio | `desktop-app` |
 | API que consume la app | `api-backend` |
 | Algo se ve mal en pantalla | `ui-bug` |
+
+## Diseño visual
+
+Toda pantalla nueva o rediseñada aplica `ui-design` antes de darse por terminada: tokens de tipografía, espaciado y color definidos primero, cero emojis, un solo set de iconos SVG, y verificación con capturas en un teléfono chico y uno grande. Una interfaz que funciona pero parece plantilla generada por IA no está lista.
 
 ## Regla de hierro: el paquete es público
 

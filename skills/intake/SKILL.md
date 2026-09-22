@@ -1,6 +1,6 @@
 ---
 name: intake
-description: Use when someone asks for software without a written spec — "hazme un CRM de WhatsApp", "quiero una app de X", "necesito un bot que...", "build me a dashboard", a new project, a big vague feature, or a client request. Runs the discovery interview a professional developer runs with a client: clarifies goal, users, scope in/out, data, integrations, constraints, then PROPOSES the quality rules (metrics, tests, processes) and gets explicit sign-off before any code. Produces spec.md with acceptance criteria and an assumptions ledger. NO usar para bugs (triage) ni preguntas teoricas (consulta).
+description: "Turn a big, vague or client request into a short spec before building: new product, multi-week scope, client commission. Few questions, each with a default. Not for small concrete tasks."
 ---
 
 # Intake — la entrevista que convierte un deseo en un encargo
@@ -21,6 +21,7 @@ Sin spec escrita, "listo" es una opinión. Con spec, "listo" es una lista de cri
 
 | Situación | Ruta |
 |---|---|
+| Pedido chico y concreto (una pantalla, un script, una landing, un endpoint) | skill del dominio directo, con supuestos en voz alta |
 | Algo existente está roto | `triage` |
 | Pregunta técnica sin construir | `consulta` |
 | "¿Vale la pena esta idea?" (viabilidad, no alcance) | `valida-idea` |

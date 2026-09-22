@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions"><img src="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions/workflows/validate.yml/badge.svg" alt="validate skills"></a>
-  <img src="https://img.shields.io/badge/skills-36-black" alt="36 skills">
+  <img src="https://img.shields.io/badge/skills-37-black" alt="37 skills">
   <img src="https://img.shields.io/badge/Claude_Code-%E2%9C%93-black" alt="Claude Code">
   <img src="https://img.shields.io/badge/Codex_%C2%B7_OpenCode_%C2%B7_Cursor-%E2%9C%93-black" alt="Codex OpenCode Cursor">
   <img src="https://img.shields.io/badge/license-MIT-black" alt="MIT">
@@ -18,7 +18,7 @@
 
 ---
 
-36 skills (`SKILL.md`) that make an AI coding agent work **like a professional engineer**, not like a code generator that says "done" without verifying anything. They work in Claude Code and in any agent that supports the [Agent Skills](https://agentskills.io) format (Codex, OpenCode, Cursor…).
+37 skills (`SKILL.md`) that make an AI coding agent work **like a professional engineer**, not like a code generator that says "done" without verifying anything. They work in Claude Code and in any agent that supports the [Agent Skills](https://agentskills.io) format (Codex, OpenCode, Cursor…).
 
 ```bash
 git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git && cd clipboard-skills && ./install.sh
@@ -110,6 +110,7 @@ Each folder is independent: take only `intake`, `constitution` and `quality-gate
 | Skill | What for |
 |---|---|
 | `web-app` | Websites and web apps: states, forms, accessibility, responsive, SEO |
+| `ui-design` | Visual design that doesn't look vibecoded: type/spacing/color tokens, no emojis, screenshot review |
 | `api-backend` | Contracts, idempotency, retries, webhooks, background jobs |
 | `bot-dev` | Messaging bots: channel, state, resilience, handoff to a human |
 | `automation` | Scripts, cron, scraping, ETL: idempotent, resumable and loud when failing |

@@ -1,6 +1,6 @@
 ---
 name: changelog-generator
-description: Use when the user asks for a changelog, release notes or a "what changed" summary from git history — "genera el changelog", "notas de la versión", "qué cambió desde la última release", "write release notes", preparing a tag or a client-facing update. Reads real commit history, groups by type and writes user-facing notes. NO inventa cambios que no estén en el historial ni reemplaza la documentación del proyecto.
+description: "Changelog or release notes from git history. \"genera el changelog\", \"notas de la versión\", \"qué cambió desde la última release\"."
 ---
 
 # Changelog-Generator — traducir commits a consecuencias para quien usa

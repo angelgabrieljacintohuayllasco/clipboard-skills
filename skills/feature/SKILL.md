@@ -1,6 +1,6 @@
 ---
 name: feature
-description: Use to implement new functionality in an existing project — "agrega X", "implementa el login", "haz que ahora también...", "add this feature", "build this endpoint/screen/command", a ticket, or the next slice after intake/architecture. Runs the professional loop: read the project notes, plan a thin vertical slice, tasks, test-first, implement, run the gate, update docs. NO usar para bugs (fixer/triage), reestructuración sin cambio de comportamiento (refactor) ni proyectos desde cero sin spec (intake).
+description: "Implement new functionality in an existing project: \"agrega X\", \"implementa el login\", \"add this feature\", a ticket. Thin vertical slice, test-first, runs the gate, updates notes."
 ---
 
 # Feature — construir una rebanada, verificada, sin romper lo que ya anda

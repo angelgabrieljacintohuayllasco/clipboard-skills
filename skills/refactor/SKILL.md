@@ -1,6 +1,6 @@
 ---
 name: refactor
-description: Use when code works but needs restructuring without changing behaviour — monolithic files (1500+ LOC), duplicated logic, tangled state, "cada cambio rompe otra cosa", "me da miedo tocarlo", extracting modules, splitting a god file, cleaning architecture, preparing ground before a big feature. Behaviour is frozen: same inputs, same outputs, same side effects. NO usar con un bug activo (fixer), sin red de pruebas (test-strategy primero) ni cuando la base no se puede salvar (rebuild).
+description: "Restructure working code without changing behaviour: split god files, remove duplication, untangle state, extract modules. \"me da miedo tocarlo\", \"cada cambio rompe otra cosa\"."
 ---
 
 # Refactor — reestructurar sin cambiar comportamiento

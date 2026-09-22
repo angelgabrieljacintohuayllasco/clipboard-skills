@@ -1,6 +1,6 @@
 ---
 name: diff-review
-description: Use to review a change before it ships — "revisa este código", "revisa el diff", "review my PR", code written by an AI agent or another dev, changes touching auth/money/personal data/migrations, or when the automatic gate is green but the change is sensitive. Reviews by risk: correctness against acceptance criteria, security, data integrity, blast radius, then style. Produces findings with file:line, severity and concrete fix. NO corre las métricas (quality-gate) ni arregla bugs por su cuenta sin decirlo (fixer).
+description: "Review a change before it ships: \"revisa este código/diff\", \"review my PR\", AI-written code, changes touching auth, money, data or migrations. Findings with file:line, severity and fix."
 ---
 
 # Diff-Review — leer lo que la máquina no puede ver

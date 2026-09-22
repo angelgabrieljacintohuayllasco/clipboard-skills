@@ -1,6 +1,6 @@
 ---
 name: app-security
-description: Use when building or hardening anything that handles users, money, personal data, uploads, tokens or third-party integrations — "es seguro?", "revisa la seguridad", "secure this app", auth/login/roles design, API keys and secrets, file uploads, webhooks, "me hackearon", "expuse una clave", or before shipping to real users. Applies a defensive baseline (OWASP Top 10:2025) per app type: web, API, bot, automation, desktop, mobile. NO es pentesting ofensivo ni análisis de malware; es seguridad de lo que se construye.
+description: "Harden an app handling users, money, personal data, uploads, tokens or secrets. \"es seguro?\", \"revisa la seguridad\", \"me hackearon\", \"expuse una clave\", before shipping. OWASP Top 10 baseline."
 ---
 
 # App-Security — el baseline defensivo de lo que construyes

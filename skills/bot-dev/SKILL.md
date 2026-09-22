@@ -1,6 +1,6 @@
 ---
 name: bot-dev
-description: Use when building or extending a messaging bot or assistant — WhatsApp, Telegram, Discord, Slack, web chat, "hazme un bot", "un CRM de WhatsApp", "build a chatbot", conversation flows, session/state handling, LLM-powered replies, handoff to humans, broadcast/mass messaging, reconnection and rate limits. Covers channel choice, conversation design, state, resilience and the bot-specific gate. NO para depurar un bot que ya responde mal (agent-debug) ni para la API pura (api-backend).
+description: "Build or extend a WhatsApp, Telegram, Discord or web chat bot: conversation flows, state, LLM replies, human handoff, broadcast. \"hazme un bot\", \"CRM de WhatsApp\"."
 ---
 
 # Bot-Dev — construir un bot que sobrevive al mundo real

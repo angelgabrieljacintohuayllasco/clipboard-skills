@@ -1,6 +1,6 @@
 ---
 name: performance
-description: Use when something is slow, heavy or expensive — "va lento", "tarda mucho en cargar", "optimize this", "la consulta demora", "se traba con muchos datos", high memory/CPU, slow page loads, growing cloud bills, or setting a performance budget before building. Measures first, finds the real bottleneck, fixes the biggest one, measures again. NO adivina optimizaciones ni reescribe por estética (refactor).
+description: "Something is slow or heavy: \"va lento\", \"tarda en cargar\", \"optimize this\", slow queries, high CPU/memory, big cloud bill. Measure first, fix the dominant bottleneck, measure again."
 ---
 
 # Performance — medir, arreglar lo que domina, volver a medir

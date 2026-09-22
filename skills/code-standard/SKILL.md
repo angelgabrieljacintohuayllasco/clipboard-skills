@@ -1,6 +1,6 @@
 ---
 name: code-standard
-description: Use whenever writing or judging how code is written — naming, function size, nesting, duplication, comments, error handling, code smells, clean code, legibility, KISS, YAGNI, DRY, "este código está feo", "make it cleaner", "buenas prácticas", "cómo lo escribo bien", or reviewing style before a gate. It is the writing standard behind every other skill in the pack. NO mide métricas (quality-gate), no reestructura módulos existentes (refactor), no fija umbrales (constitution).
+description: "How to write code well: naming, function size, nesting, duplication, comments, error handling, no emojis in code. \"este código está feo\", \"buenas prácticas\", \"clean code\". Applies to all code you write."
 ---
 
 # Code-Standard — cómo se escribe el código que nadie va a leer entero
@@ -33,7 +33,7 @@ SI ENTENDER UNA FUNCION EXIGE SALTAR A OTRO ARCHIVO, LA FUNCION ESTA MAL ESCRITA
 
 Una unidad de código debe poder leerse de arriba a abajo y entenderse sin abrir nada más. El nivel de detalle dentro de una función debe ser uniforme: no mezclar reglas de negocio con manipulación de strings ni con manejo de conexión.
 
-## Los siete ejes
+## Los ocho ejes
 
 ### 1. Nombres
 - El nombre dice **qué es o qué hace**, no cómo está implementado. `usuariosActivos`, no `arr2`.
@@ -78,6 +78,11 @@ Una unidad de código debe poder leerse de arriba a abajo y entenderse sin abrir
 - Organiza por **capacidad de negocio** (pedidos, facturación, usuarios), no por tipo técnico (controllers, services, models). Lo que cambia junto vive junto.
 - Público lo mínimo; privado por defecto.
 - Un archivo = un tema. Cuando un archivo necesita índice mental, ya se partió solo.
+
+### 8. Sin emojis ni adornos
+- Cero emojis en código, comentarios, logs, mensajes de error, salidas de CLI, commits, README y documentación. Tampoco en la UI (ver `ui-design`). Para estados en texto: palabras (`OK`, `FALLA`, `AVISO`), no símbolos decorativos.
+- Nada de banners ASCII, separadores `=====` gigantes ni mayúsculas gritonas en logs. Un log profesional es aburrido y parseable.
+- Excepción única: el usuario lo pide explícitamente.
 
 ## KISS, YAGNI y DRY con criterio operativo
 

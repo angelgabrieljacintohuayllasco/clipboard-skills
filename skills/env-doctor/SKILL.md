@@ -1,6 +1,6 @@
 ---
 name: env-doctor
-description: Use when a project won't start, build or run and the cause is environmental — wrong runtime version, missing or mismatched dependencies, unset env vars, port conflicts, broken DB/service connections, "no arranca", "no compila", "funciona en su máquina y en la mía no", "it works on my machine", fresh clone that won't boot, or CI that fails only in CI. Diagnoses every layer before concluding. NO arregla bugs de lógica (fixer) ni despliega (deploy).
+description: "Project won't start, build or install for environmental reasons: runtime versions, deps, env vars, ports, DB connection. \"no arranca\", \"no compila\", \"works on my machine\", fails only in CI."
 ---
 
 # Env-Doctor — por qué no arranca

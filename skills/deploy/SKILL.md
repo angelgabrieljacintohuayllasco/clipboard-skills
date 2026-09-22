@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Use to publish software to real users and to be able to undo it — "sube esto a producción", "deploy this", "cómo lo publico", VPS/container/hosting/store releases, environments and secrets, CI/CD setup, versioning and releases, rollbacks, "se rompió después de subir", or writing the runbook. Covers pre-release gate, safe rollout, rollback drill and post-deploy verification. NO diagnostica entornos rotos en desarrollo (env-doctor) ni diseña monitoreo (observability).
+description: "Ship to production and be able to roll back: VPS, containers, hosting, stores, CI/CD, env vars, releases. \"sube esto a producción\", \"deploy this\", \"se rompió después de subir\"."
 ---
 
 # Deploy — publicar de forma que se pueda deshacer

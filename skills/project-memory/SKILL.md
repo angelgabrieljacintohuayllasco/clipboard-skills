@@ -1,6 +1,6 @@
 ---
 name: project-memory
-description: Use at the START of work on any project (read the notes before exploring code) and at the END of any session with real progress (bug fixed, decision made, gotcha found) — also on "documenta esto", "guarda lo que aprendimos", "actualiza las notas", "write this down", "update the docs", or when a project has no AGENTS.md / notes at all. Keeps durable engineering memory as plain markdown in the repo (AGENTS.md + docs/project/) with an optional Obsidian vault mirror. NO es el README público (readme-generator) ni la memoria personal del asistente.
+description: "Read project notes (AGENTS.md, docs/project) at the start of work; write what was learned at the end of a session with real progress. \"documenta esto\", \"actualiza las notas\"."
 ---
 
 # Project-Memory — lo que no se escribe se vuelve a pagar

@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Use when you cannot tell what a running system is doing — "no sé qué pasa en producción", "se cayó y no sé por qué", "add logging", "necesito monitoreo", "cómo me entero si falla", intermittent failures, silent bot/cron/job failures, or before launching anything real. Designs logs, metrics, health checks, alerts and error tracking so failures are noticed by the system, not by the client. NO diagnostica un bug puntual (fixer) ni optimiza velocidad (performance).
+description: "Know what a running system does: logs, metrics, health checks, alerts, error tracking. \"no sé qué pasa en producción\", \"se cayó y no sé por qué\", silent cron/bot failures."
 ---
 
 # Observability — que el sistema avise antes que el cliente

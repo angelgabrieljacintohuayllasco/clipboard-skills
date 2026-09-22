@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions"><img src="https://github.com/angelgabrieljacintohuayllasco/clipboard-skills/actions/workflows/validate.yml/badge.svg" alt="validate skills"></a>
-  <img src="https://img.shields.io/badge/skills-36-black" alt="36 skills">
+  <img src="https://img.shields.io/badge/skills-37-black" alt="37 skills">
   <img src="https://img.shields.io/badge/Claude_Code-%E2%9C%93-black" alt="Claude Code">
   <img src="https://img.shields.io/badge/Codex_%C2%B7_OpenCode_%C2%B7_Cursor-%E2%9C%93-black" alt="Codex OpenCode Cursor">
   <img src="https://img.shields.io/badge/license-MIT-black" alt="MIT">
@@ -18,7 +18,7 @@
 
 ---
 
-36 skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada. Funcionan en Claude Code y en cualquier agente compatible con el formato [Agent Skills](https://agentskills.io) (Codex, OpenCode, Cursor…).
+37 skills (`SKILL.md`) que hacen que un agente de IA trabaje **como un programador profesional**, no como un generador de código que dice "listo" sin haber verificado nada. Funcionan en Claude Code y en cualquier agente compatible con el formato [Agent Skills](https://agentskills.io) (Codex, OpenCode, Cursor…).
 
 ```bash
 git clone https://github.com/angelgabrieljacintohuayllasco/clipboard-skills.git && cd clipboard-skills && ./install.sh
@@ -110,6 +110,7 @@ Cada carpeta es independiente: puedes llevarte solo `intake`, `constitution` y `
 | Skill | Para qué |
 |---|---|
 | `web-app` | Webs y aplicaciones web: estados, formularios, accesibilidad, responsive, SEO |
+| `ui-design` | Diseño visual que no parece vibecodeado: tokens de tipografía/espaciado/color, sin emojis, revisión con capturas |
 | `api-backend` | Contratos, idempotencia, reintentos, webhooks, trabajos en segundo plano |
 | `bot-dev` | Bots de mensajería: canal, estado, resiliencia, escalamiento a humano |
 | `automation` | Scripts, cron, scraping, ETL: idempotente, reanudable y ruidoso al fallar |

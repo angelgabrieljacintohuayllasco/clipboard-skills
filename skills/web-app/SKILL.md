@@ -1,6 +1,6 @@
 ---
 name: web-app
-description: Use when building or extending a website or web application — landing pages, dashboards, SaaS, e-commerce, admin panels, client sites, CMS/WordPress work, React/Next/Vue/Svelte/Astro or plain HTML, "hazme una web", "build me a dashboard", forms, auth screens, responsive layouts, SEO. Covers the delivery checklist a professional ships with: accessibility, responsive, forms, states, SEO, performance budget and the web-specific quality gate. NO para bugs visuales existentes (ui-bug) ni para el backend puro (api-backend).
+description: "Build or extend a website or web app: landing, dashboard, SaaS, e-commerce, admin panel, WordPress, React/Next/Vue/Astro/HTML. \"hazme una web\". States, a11y, responsive, SEO, perf. Use with ui-design."
 ---
 
 # Web-App — lo que separa una web entregable de una demo bonita
@@ -22,7 +22,12 @@ Una web "terminada" en una demo suele carecer de la mitad de lo que hace que sir
 | Algo se ve mal o no responde al clic | `ui-bug` |
 | Solo la API/servicio detrás | `api-backend` |
 | Lento y ya medido | `performance` |
-| Pedido vago / nueva web sin spec | `intake` |
+| Pedido grande o de cliente sin spec | `intake` |
+| Solo el aspecto visual (se ve genérico, rediseño) | `ui-design` |
+
+## Diseño visual
+
+Toda pantalla nueva o rediseñada aplica `ui-design` antes de darse por terminada: tokens de tipografía, espaciado y color definidos primero, cero emojis, un solo set de iconos SVG, y verificación con capturas en móvil y escritorio. Una interfaz que funciona pero parece plantilla generada por IA no está lista.
 
 ## Regla de hierro: no existe "listo" sin los cuatro estados
 

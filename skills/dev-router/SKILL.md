@@ -1,6 +1,6 @@
 ---
 name: dev-router
-description: Use at the START of any software work when the next move isn't obvious — "hazme un CRM de WhatsApp", "quiero una app", "ayúdame con mi proyecto", "build me an app", "add this feature", vague or large requests, unclear if it needs discovery, architecture, a feature slice, a fix, tests, or deploy. Routes to the right skill of the engineering pack and enforces the order of the cycle (intake → constitution → architecture → feature → quality-gate → deploy). NO usar si el pedido ya es concreto y la skill correcta es evidente.
+description: "Start of any software request when the right skill isn't obvious: \"hazme una app/CRM/web\", \"ayúdame con mi proyecto\", \"build me X\". Picks the skill and how much process the task deserves."
 ---
 
 # Dev-Router — qué skill toca, en qué orden
@@ -11,15 +11,23 @@ El error más caro en desarrollo asistido por IA no es escribir mal el código: 
 
 Esta skill decide **qué se hace primero** y delega. No escribe código.
 
-## Regla de hierro: nada de código sin las tres respuestas
+## Regla de hierro: el proceso se ajusta al tamaño, el resultado no se negocia
 
 ```
-1. ¿QUÉ construimos y cómo sabremos que está bien?   → spec + criterios de aceptación
-2. ¿BAJO QUÉ RESTRICCIONES?                           → constitución (límites + umbrales)
-3. ¿CÓMO SE VERIFICA SIN LEER CADA LÍNEA?             → gate automático (comandos que corren)
+1. ¿QUÉ construimos y cómo sabremos que está bien?   → criterios de aceptación (aunque sean 3 líneas)
+2. ¿BAJO QUÉ RESTRICCIONES?                           → constitución (o los defaults del perfil P1)
+3. ¿CÓMO SE VERIFICA SIN LEER CADA LÍNEA?             → gate automático + mirar el resultado real
 ```
 
-Si falta alguna, la primera tarea es conseguirla, no programar. Un prototipo desechable también las necesita — solo que en su nivel más bajo (perfil P1).
+Las tres respuestas siempre existen, pero su tamaño es proporcional al pedido. El proceso es un medio: si produce documentos y preguntas en lugar de un resultado bueno, está mal aplicado.
+
+| Tamaño del pedido | Qué se hace |
+|---|---|
+| **Concreto y chico** (una pantalla, un endpoint, un script, un fix, una web simple) | Se construye YA. Criterios y supuestos en 3–5 líneas al inicio de la respuesta, defaults del perfil P1, gate al final. Cero entrevista. |
+| **Mediano** (una feature con varias piezas, una app chica) | Una sola ronda de ≤ 3 preguntas **solo si** la respuesta cambia lo que se construye; si no, supuestos en voz alta y a construir. |
+| **Grande o para un cliente** (producto nuevo, semanas de trabajo, dinero de por medio) | `intake` → `constitution` → `architecture` → `feature`, completo. |
+
+Ante la duda, construye con supuestos explícitos: es más fácil corregir algo concreto que discutir algo abstracto. Toda salida con UI pasa por `ui-design`; toda salida pasa por `code-standard`.
 
 ## Mapa del ciclo
 
@@ -38,7 +46,9 @@ PEDIDO
 
 | Lo que trae el usuario | Skill | Por qué |
 |---|---|---|
-| "Hazme un X" (CRM, bot, app, web, script) | `intake` | Falta spec y acuerdo de restricciones. Nunca saltar a código. |
+| "Hazme un X" grande o para un cliente (CRM, plataforma, app completa) | `intake` | Falta spec y acuerdo de restricciones. |
+| "Hazme un X" chico y claro (landing, script, pantalla, bot simple) | skill del dominio directo | Construir con supuestos explícitos; no entrevistar. |
+| Cualquier interfaz nueva o "se ve feo / genérico / vibecodeado" | `ui-design` | Sistema visual y verificación con capturas. |
 | Proyecto nuevo aprobado, sin repo | `constitution` → `architecture` | Los gates se instalan el día 1, no al final. |
 | Repo vivo + funcionalidad nueva | `feature` | Slice vertical bajo la constitución vigente. |
 | "¿Qué stack / cómo estructuro esto?" | `architecture` | Decisión con ADR, no gusto personal. |
@@ -72,9 +82,11 @@ Regla: **toda pregunta lleva recomendación por defecto.** "¿Postgres o SQLite?
 
 | Excusa | Realidad |
 |---|---|
-| "El usuario quiere ver algo ya, programo y después ordeno" | "Después" nunca llega y el costo de retrofit de gates crece con cada archivo. 20 minutos de intake y constitución ahorran semanas. |
-| "Es un proyecto chico, no necesita proceso" | Entonces usa el perfil P1 (gates mínimos). Perfil bajo ≠ sin proceso. |
-| "Sé lo que quiere, no hace falta preguntar" | Si aciertas, perdiste 3 minutos. Si fallas, perdiste el proyecto entero. Nadie encargó un CRM esperando lo que tú imaginaste. |
+| "El usuario quiere ver algo ya, programo y después ordeno" | En un proyecto grande, "después" nunca llega. En uno chico, construir ya es lo correcto, pero con criterios y gate. |
+| "Es un proyecto chico, no necesita proceso" | Usa el perfil P1 (gates mínimos). Perfil bajo ≠ sin proceso, y tampoco ≠ entrevista. |
+| "Mejor pregunto todo antes de empezar" | En pedidos chicos, preguntar es trasladar trabajo. Supuestos en voz alta y un resultado concreto que se pueda corregir. |
+| "Sé lo que quiere en un proyecto grande, no hace falta preguntar" | Si fallas, perdiste el proyecto entero. Nadie encargó un CRM esperando lo que tú imaginaste. |
+| "Cumplí el proceso, así que el resultado está bien" | El proceso no mira la pantalla. Si el resultado se ve genérico o pobre, no está terminado. |
 | "Ya hay mucho código, tarde para restricciones" | Se aplican al código NUEVO (clean as you code) y se hace ratchet. Nunca es tarde: es más barato ahora que mañana. |
 
 ## Formato de salida
@@ -82,4 +94,4 @@ Regla: **toda pregunta lleva recomendación por defecto.** "¿Postgres o SQLite?
 - **Ruta**: skill principal + las 2 siguientes del ciclo.
 - **Qué falta**: cuál de las tres respuestas (spec / restricciones / gate) no existe todavía.
 - **Preguntas abiertas**: solo las que bloquean; cada una con su recomendación por defecto.
-- Nunca escribas código desde esta skill. Delega e invoca.
+- Esta skill no escribe código: decide y **invoca en el mismo turno** la skill elegida (con la herramienta de skills) para que el trabajo empiece de inmediato, sin devolver solo un plan.

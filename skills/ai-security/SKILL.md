@@ -1,6 +1,6 @@
 ---
 name: ai-security
-description: Usar cuando se construye o revisa algo que usa IA/LLM o un agente — chatbots, agentes con herramientas, RAG, automatizaciones con IA, features que meten input no confiable en un prompt, o cuando se instala/usa código generado por IA. También "es seguro mi agente/bot de IA", "revisa la seguridad de la IA", "parámetros de seguridad para agentes". Aplica los riesgos específicos de IA (OWASP LLM Top 10 2025 + OWASP Agentic Top 10) con controles concretos: mínimo privilegio y acotado de herramientas, defensa de prompt injection, niveles de aprobación humana por riesgo, manejo de secretos, sandbox, y anti-slopsquatting en dependencias. NO reemplaza a `app-security` (seguridad general de la app) — es su complemento para la parte de IA/agentes.
+description: "Security of anything using LLMs or agents: prompt injection, tool scoping, secrets, human approval, RAG, AI-generated deps (slopsquatting). \"es seguro mi bot/agente de IA\". OWASP LLM + Agentic."
 ---
 
 # AI-security — seguridad de sistemas con IA y de código generado por IA
